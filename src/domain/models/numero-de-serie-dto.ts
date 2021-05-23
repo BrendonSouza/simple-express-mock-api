@@ -1,5 +1,5 @@
-import { GenericEntity } from './../../core/models/generic-entity';
 
-export interface NumeroDeSerieDTO extends GenericEntity{
+export interface NumeroDeSerieDTO{
+  id: number;
   codigo: string;
 }

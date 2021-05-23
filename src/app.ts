@@ -2,8 +2,6 @@ import express from 'express';
 import cors from 'cors';
 
 import routes from './routes';
-import { CaixaResource } from './domain/resources/caixa-resource';
-
 
 class App {
   public server;
@@ -21,7 +19,7 @@ class App {
   }
 
   routes() {
-    this.server.use(routes);    
+    this.server.use(routes); 
   }
 }
 

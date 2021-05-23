@@ -6,7 +6,8 @@
   "author": "Tyandrer Boldt",
   "scripts": {
     "build": "tsc --project ./",
-    "start": "nodemon src/server.ts"
+    "start": "nodemon src/server.ts",
+    "debug": "DEBUG=express:* nodemon src/server.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
