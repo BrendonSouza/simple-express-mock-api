@@ -1,27 +1,69 @@
+import { ExamModel } from './../models/exam-model';
 import { CaixaDTO } from '../models/caixa-dto';
 import { GenericRepository } from './../../core/generics/generic-repository';
 
-export class CaixaRepository extends GenericRepository<CaixaDTO> {
+export class ExamRepository extends GenericRepository<ExamModel> {
 
   constructor() {
-    const caixas:CaixaDTO[] = []
-    for (let i = 1; i < 30; i++) {
-      let caixa:CaixaDTO = {
-        id: i,
-        capacidade: i * 4,
-        descricao: `Caixa ${i}`,
-        saldo: i *2,
-        numerosDeSerie: []
+    const data:ExamModel[] = [
+      {
+        id: 1,
+        name: "P. DE FEZES C/ BAERMAN E PESQUISA DE AMEBA E GIARDOA"
+      },
+      {
+        id: 2,
+        name: "GGT"
+      },
+      {
+        id: 3,
+        name: "F. ALCALINA"
+      },
+      {
+        id: 4,
+        name: "BILIRRUBINA T. E FRAÇÕES"
+      },
+      {
+        id: 5,
+        name: "AMILASE",
+      },
+      {
+        id: 6,
+        name: "MIF ( FEZES 3 AMOSTRAS )"
+      },
+      {
+        id: 7,
+        name: "LIPASE"
+      },
+      {
+        id: 8,
+        name: "SANGUE OCULTO"
+      },
+      {
+        id: 9,
+        name: "P.T E FRAÇÕES"
+      },
+      {
+        id: 10,
+        name: "COPROCULTURA"
+      },
+      {
+        id: 11,
+        name: "T. DE PROTOMBINA"
+      },
+      {
+        id: 12,
+        name: "SUMARIO DE URINA"
+      },
+      {
+        id: 13,
+        name: "ALFA FETO PROTEINA"
+      },
+      {
+        id: 14,
+        name: "UROCULTURA C/ ANTIBIOGRAMA"
       }
-      for (let j = 0; j < caixa.saldo; j++) {
-        caixa.numerosDeSerie.push({
-          id: Number(`${i}${j}`),
-          codigo: j + 'XZC' + i
-        })      
-      }
-      caixas.push(caixa)
-    }
-    super(caixas)
+    ]
+    super(data)
   }
 
 }

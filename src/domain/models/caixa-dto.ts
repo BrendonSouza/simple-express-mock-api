@@ -7,3 +7,6 @@ export interface CaixaDTO{
   saldo?: number;
   numerosDeSerie?: NumeroDeSerieDTO[]
 }
+
+//obter str de atributos
+//Object.keys(caixa)['descricao']

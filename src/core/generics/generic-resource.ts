@@ -19,18 +19,21 @@ export class GenericResource<T>{
   }
 
   public buildRoutes(): Router {
+    this.router.get(`/${this.rootUri}/all`, (req, res) => {
+      return res.json(this.repository.findAll())
+    })
     this.router.get(`/${this.rootUri}/:id`, (req, res) => {
       const id = Number(req.params.id)
       return (id) ? res.json(this.repository.findById(id)) : null
     })
     this.router.get(`/${this.rootUri}`, (req, res) => {
       const page = (req.query.page) ? Number(req.query.page) : 0
-      const size = (req.query.size) ? Number(req.query.size) : 12
+      let size = (req.query.size) ? Number(req.query.size) : 12
+      if(!req.query.size){
+        size = (req.query.lines) ? Number(req.query.lines) : 12
+      }
       return res.json(this.repository.findAllPaged(page, size))
-    });
-    this.router.get(`/${this.rootUri}/all`, (req, res) => {
-      return res.json(this.repository.findAll())
-    })
+    });    
     this.router.post(`/${this.rootUri}`, (req, res) => {
       const body:T = req.body
       return res.json(this.repository.create(body))
