@@ -1,4 +1,4 @@
-export interface AplicacaoDTO {
+export interface RecursoDTO {
   id: number;
   nome: string;
   subtitulo:string;
